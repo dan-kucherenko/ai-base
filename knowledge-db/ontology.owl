@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+<rdf:RDF xmlns="http://example.org/"
+     xml:base="http://example.org/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+  <!-- Declaration of Classes -->
+  <owl:Class rdf:about="#Person"/>
+
+  <!-- Declaration of Data Properties -->
+  <owl:DatatypeProperty rdf:about="#hasAge"/>
+
+  <!-- Declaration of Object Properties -->
+  <owl:ObjectProperty rdf:about="#hasFriend"/>
+
+  <!-- Declaration of Individuals -->
+  <owl:NamedIndividual rdf:about="#John">
+    <rdf:type rdf:resource="#Person"/>
+    <hasAge rdf:datatype="&xsd;integer">25</hasAge>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="#Jane">
+    <rdf:type rdf:resource="#Person"/>
+    <hasAge rdf:datatype="&xsd;integer">30</hasAge>
+  </owl:NamedIndividual>
+
+  <!-- Friendship Relation -->
+  <rdf:Description rdf:about="#John">
+    <hasFriend rdf:resource="#Jane"/>
+  </rdf:Description>
+
+</rdf:RDF>
